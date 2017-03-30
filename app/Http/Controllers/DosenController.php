@@ -69,7 +69,7 @@ class DosenController extends Controller
         $dosen->nama = $input->nama;
         $dosen->nip = $input->nip;
         $dosen->alamat = $input->alamat;
-        $dosen->pengguna_id = $input->pengguna_id;
+        $dosen->save();
         if(!is_null($input->username)){
             $pengguna = $dosen->pengguna->fill($input->only('username'));
                 if(!empty($input->password)) $pengguna->password = $input->password;

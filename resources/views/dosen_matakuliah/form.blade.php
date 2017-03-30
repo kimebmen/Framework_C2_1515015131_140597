@@ -1,7 +1,7 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" id="dosen_id">Nama Dosen</label>
 	<div class="col-sm-10">
-		{!! Form::select('dosen_id',$dosen->listDosenDanNim(),null,['class'=>'form-control','id=>dosen_id','placeholder'=>"Dosen"]) !!}	
+		{!! Form::select('dosen_id',$dosen->listDosenDanNip(),null,['class'=>'form-control','id=>dosen_id','placeholder'=>"Dosen"]) !!}	
 	</div>
 </div>
 

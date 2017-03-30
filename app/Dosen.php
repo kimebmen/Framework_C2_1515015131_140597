@@ -18,7 +18,6 @@ class Dosen extends Model
         return $this->pengguna->username;
     }
 
-
     public function Dosen_Matakuliah()
     {
     	return $this->hasOne(Dosen_Matakuliah::class);
