@@ -28,7 +28,7 @@ class Mahasiswa extends Model
     
     public function jadwal_matakuliah()
     {
-        return $this->hasMany(Jadwal_Matakuliah::class);
+        return $this->hasMany(Jadwal_Matakuliah::class,'mahasiswa_id');
     }
     
 }

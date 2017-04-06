@@ -30,11 +30,3 @@
 	</div>
 </div>
 
-<!-- $mahasiswa = Mahasiswa::find($id);
-        $mahasiswa->nama = $input->nama;
-        $mahasiswa->nip = $input->nip;
-        $mahasiswa->alamat = $input->alamat;
-        $mahasiswa->pengguna_id = $input->pengguna_id;
-        $informasi = $mahasiswa->save() ? 'Berhasil update data': 'Gagal update data';
-        return redirect ('mahasiswa') -> with (['informasi'=>$informasi]);
-    } -->

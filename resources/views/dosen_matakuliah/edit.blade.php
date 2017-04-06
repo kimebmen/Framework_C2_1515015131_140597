@@ -14,8 +14,4 @@
 	{!! Form::close() !!}
 </div>
 @stop
-<!-- 
-$dosen->nama = $input->nama;
-    	$dosen->nip = $input->nip;
-    	$dosen->alamat = $input->alamat;
-    	$dosen->pengguna_id = $input->pengguna_id; -->
+

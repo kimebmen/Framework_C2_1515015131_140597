@@ -23,7 +23,7 @@
 		<tr>
 			<td>NIP Dosen</td>
 			<td>:</td>
-			<td>{{ $jadwal_matakuliah->$dosen_matakuliah->dosen->nip }}</td>
+			<td>{{ $jadwal_matakuliah->dosen_matakuliah->dosen->nip }}</td>
 		</tr>
 		<tr>
 			<td>Nama Matakuliah</td>
