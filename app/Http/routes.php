@@ -82,11 +82,41 @@ Route::post('jadwal_matakuliah/edit/{jadwal_matakuliah}','Jadwal_MatakuliahContr
 Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}','Jadwal_MatakuliahController@hapus');
 Route::get('jadwal_matakuliah/lihat/{jadwal_matakuliah}','Jadwal_MatakuliahController@lihat');
 
+Route::get('ujiHas','RelationshipRebornController@ujiHas');
+Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
+
+
+
+
 // Route::get('/', function () {
 //     return view('posttest1');
 // });
-Route::get('/', function () {
-    return view('master');
+// Route::get('/', function () 
+// {
+//     return view('master');
+// }); 
+
+// Route::get('/', function () 
+// {
+//     return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
+//     {
+//     	$query->where('nama','like','%k%');
+//     })->with('dosen')->groupBy('dosen_id')->get();
+// }); 
+
+Route::get('/', function () 
+{
+    return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
+    {
+    	$query->where('nama','like','%k%');
+    })
+    ->orWhereHas('matakuliah',function ($kueri)
+    {
+    	$kueri->where('title','like','%a%');
+    })
+    ->with('dosen')
+    ->groupBy('dosen_id')
+    ->get();
 }); 
 
 Route::get('/public', function () {
