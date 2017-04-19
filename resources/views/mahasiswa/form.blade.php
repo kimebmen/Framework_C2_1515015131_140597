@@ -1,3 +1,6 @@
+<?php echo csrf_field(); ?>
+{{ csrf_field() }}
+
 <div class="form-group">
 	<label class="col-sm-2 control-label" id="nama">Nama Mahasiswa</label>
 	<div class="col-sm-10">

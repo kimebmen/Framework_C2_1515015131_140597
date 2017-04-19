@@ -23,6 +23,10 @@ class MatakuliahController extends Controller
 
     public function simpan(Request $input)
     {
+        $this->validate($input,[
+                'title'=>'required',
+                'keterangan'=>'required'
+            ]) ;
     	// $matakuliah = new Matakuliah();
     	// $matakuliah -> title = 'Pemrograman Framework';
     	// $matakuliah -> keterangan = 'Mata Kuliah Wajib';

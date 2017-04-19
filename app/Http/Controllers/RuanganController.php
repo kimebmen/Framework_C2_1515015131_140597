@@ -23,6 +23,9 @@ class RuanganController extends Controller
 
     public function simpan(Request $input)
     {
+        $this->validate($input,[
+                'title'=>'required'
+            ]) ;
     	// $ruang = new Ruangan();
     	// $ruang -> title = 'Lab BP';
     	// $ruang->save();

@@ -27,6 +27,11 @@ class PenggunaController extends Controller
      //    return redirect ('pengguna')->with(['informasi'=>$informasi]);
      //    $pengguna->save();
     	// return "Data dengan username {$pengguna->username} Telah Disimpan";
+        $this->validate($input,[
+                'username'=>'required',
+                'password'=>'required',
+            ]) ;
+        
         $pengguna = new Pengguna;
         $pengguna->username = $input->username;
         $pengguna->password = $input->password;;

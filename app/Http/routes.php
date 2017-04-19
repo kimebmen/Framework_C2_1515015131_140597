@@ -125,3 +125,23 @@ Route::get('/public', function () {
 Route::get('pengguna/{pengguna}', function ($pengguna) {
     return ("Hallo World dari pengguna $pengguna");
 });
+Route::get('/',function (Illuminate\Http\Request $request)
+{
+    echo "ini adalah request method dari method get ". $request->nama;
+});
+
+use Illuminate\Http\Request;
+Route::get('/',function ()
+{
+    echo Form::open(['url'=>'/']).
+         Form::label('nama').
+         Form::text('nama',null).
+         Form::submit('kirim').
+         Form::close();
+});
+Route::post('/',function (Request $request)
+{
+    echo "Hasil dari form input tadi nama : ".$request->nama;
+});
+
+
