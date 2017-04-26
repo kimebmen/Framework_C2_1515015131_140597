@@ -30,6 +30,11 @@
 			<td>:</td>
 			<td>{{ $jadwal_matakuliah->dosen_matakuliah->matakuliah->title }}</td>
 		</tr>
+		<tr>
+			<td>Ruangan</td>
+			<td>:</td>
+			<td>{{ $jadwal_matakuliah->ruangan->title }}</td>
+		</tr>
 
 		<tr>
 			<td class="col-xs-4">Dibuat tanggal</td>

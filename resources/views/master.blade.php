@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{url('/')}}">Laravel 5</a>
+				<a class="navbar-brand" href="{{url('/login')}}">Laravel 5</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -53,6 +53,7 @@
 						<ul class="dropdown-menu" aria-labelledby="dLabel">
 							<li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
 							<li class="divider"></li>
+
 							<li><a href="{{url('jadwal_matakuliah')}}">Jadwal Mahasiswa</a></li>							
 						</ul>
 					</li>
@@ -74,6 +75,7 @@
 							<li class="divider"></li>
 							<li><a href="{{ url('matakuliah') }}">Matakuliah</a></li>							
 						</ul>
+							<li><a href="{{ url('logout')}}">Logout</a></li>
 					</li>
 				</ul>
 				</div><!--/.nav collapse-->

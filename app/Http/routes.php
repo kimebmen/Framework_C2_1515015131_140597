@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Http\Request;
+// use Illuminate\Http\Middleware\AuthentifikasiUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,20 +12,20 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('pengguna','PenggunaController@awal');
-Route::get('pengguna/tambah','PenggunaController@tambah');
-
-
-Route::post('pengguna/simpan','PenggunaController@simpan');
-Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
-Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
-Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
-Route::get('pengguna/lihat/{pengguna}','PenggunaController@lihat');
-
-
-
-Route::get('matakuliah','MatakuliahController@awal');
+Route::get('/login','SesiController@form');
+Route::post('/login','SesiController@validasi');
+Route::get('/logout','SesiController@logout');
+Route::get('/','SesiController@index');
+Route::group(['middleware'=>'AuthentifikasiUser'],function ()
+{
+	Route::get('pengguna','PenggunaController@awal');
+	Route::get('pengguna/tambah','PenggunaController@tambah');
+	Route::post('pengguna/simpan','PenggunaController@simpan');
+	Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
+	Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
+	Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
+	Route::get('pengguna/lihat/{pengguna}','PenggunaController@lihat');
+	Route::get('matakuliah','MatakuliahController@awal');
 Route::get('matakuliah/tambah','MatakuliahController@tambah');
 
 Route::post('matakuliah/simpan','MatakuliahController@simpan');
@@ -85,6 +87,14 @@ Route::get('jadwal_matakuliah/lihat/{jadwal_matakuliah}','Jadwal_MatakuliahContr
 Route::get('ujiHas','RelationshipRebornController@ujiHas');
 Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
 
+});
+
+
+
+
+
+
+
 
 
 
@@ -104,44 +114,44 @@ Route::get('ujiDoesntHave','RelationshipRebornController@ujiDoesntHave');
 //     })->with('dosen')->groupBy('dosen_id')->get();
 // }); 
 
-Route::get('/', function () 
-{
-    return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
-    {
-    	$query->where('nama','like','%k%');
-    })
-    ->orWhereHas('matakuliah',function ($kueri)
-    {
-    	$kueri->where('title','like','%a%');
-    })
-    ->with('dosen')
-    ->groupBy('dosen_id')
-    ->get();
-}); 
+// Route::get('/', function () 
+// {
+//     return \App\Dosen_Matakuliah::whereHas('dosen',function($query)
+//     {
+//     	$query->where('nama','like','%k%');
+//     })
+//     ->orWhereHas('matakuliah',function ($kueri)
+//     {
+//     	$kueri->where('title','like','%a%');
+//     })
+//     ->with('dosen')
+//     ->groupBy('dosen_id')
+//     ->get();
+// }); 
 
-Route::get('/public', function () {
-    return ("Nama Saya : R.H. Kimebmen Simbolon");
-});
-Route::get('pengguna/{pengguna}', function ($pengguna) {
-    return ("Hallo World dari pengguna $pengguna");
-});
-Route::get('/',function (Illuminate\Http\Request $request)
-{
-    echo "ini adalah request method dari method get ". $request->nama;
-});
+// Route::get('/public', function () {
+//     return ("Nama Saya : R.H. Kimebmen Simbolon");
+// });
+// Route::get('pengguna/{pengguna}', function ($pengguna) {
+//     return ("Hallo World dari pengguna $pengguna");
+// });
+// Route::get('/',function (Illuminate\Http\Request $request)
+// {
+//     echo "ini adalah request method dari method get ". $request->nama;
+// });
 
-use Illuminate\Http\Request;
-Route::get('/',function ()
-{
-    echo Form::open(['url'=>'/']).
-         Form::label('nama').
-         Form::text('nama',null).
-         Form::submit('kirim').
-         Form::close();
-});
-Route::post('/',function (Request $request)
-{
-    echo "Hasil dari form input tadi nama : ".$request->nama;
-});
+
+// Route::get('/',function ()
+// {
+//     echo Form::open(['url'=>'/']).
+//          Form::label('nama').
+//          Form::text('nama',null).
+//          Form::submit('kirim').
+//          Form::close();
+// });
+// Route::post('/',function (Request $request)
+// {
+//     echo "Hasil dari form input tadi nama : ".$request->nama;
+// });
 
 
